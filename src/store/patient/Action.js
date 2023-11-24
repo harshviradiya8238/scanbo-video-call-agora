@@ -8,10 +8,10 @@ import {
 // import Notification from "../../components/notification/Notification";
 import API from "../../helper/API";
 
-export const fetchPateintData = () => async (dispatch) => {
+export const fetchPateintData = (id) => async (dispatch) => {
     try {
         const { data, status, code } = await API.post("/call/getWebPatients", {
-            parent_user_id: "16",
+            parent_user_id: id,
         });
         if (data?.success) {
             dispatch({

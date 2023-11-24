@@ -1,24 +1,24 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Sidebar from "./Sidebar"; // Import the Sidebar component
+import { Routes, Route, Navigate } from "react-router-dom";
+import Sidebar from "./Sidebar";
 import DoctorList from "./DoctorList";
 import PateintList from "./PateintList";
 import PatientDetail from "./PatientDetail";
-// ... import other components
+import Redirector from "./components/Redirector";
 
 const App = () => {
+
   return (
     <div style={{ display: 'flex' }}>
       <Sidebar />
       <main style={{
         flexGrow: 1, padding: '20px', marginTop: "60px", background: "#e5edf5", height: "100vh",
-        // boxShadow: "rgba(95, 157, 231, 0.48) 4px 2px 8px 0px inset, rgb(255, 255, 255) -4px -2px 8px 0px inset"
       }}>
         <Routes>
-          <Route path="/doctor" element={<DoctorList />} />
-          <Route path="/pateint" element={<PateintList />} />
-          <Route path="/patient/:id" element={<PatientDetail />} />
-          {/* Add more Route components here for other paths */}
+          <Route path="/:id" element={<Redirector />} /> {/* Use Redirector here */}
+          <Route path="/doctor/:id" element={<DoctorList />} />
+          <Route path="/patient/:id" element={<PateintList />} />
+          <Route path="/patientDetail/:id" element={<PatientDetail />} />
         </Routes>
       </main>
     </div>

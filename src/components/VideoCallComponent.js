@@ -9,6 +9,7 @@ function VideoCallComponent({ setVideoCallConfig, doctor_id }) {
     const dispatch = useDispatch();
 
     const { cname, uid, sid, resourceId } = useSelector((state) => state?.videoCallReducer?.callDetails);
+
     const { currentCaseId } = useSelector((state) => state?.caseReducer);
 
     const callbacks = {
@@ -20,7 +21,7 @@ function VideoCallComponent({ setVideoCallConfig, doctor_id }) {
     };
     const rtcProps = {
         appId: '85fd7235064249f0a0997a368d7a24d6',
-        channel: cname, // your agora channel
+        channel: cname ? cname : "", // your agora channel
         // uid: Number(callDetails?.uid),
         // enableVideo: true,
         // enableAudio: true,

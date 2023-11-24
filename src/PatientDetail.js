@@ -21,9 +21,9 @@ export default function PatientDetail() {
 
     const { id } = useParams();
     const currentCaseId = useSelector(state => state.caseReducer.currentCaseId);
-    const pateintList = useSelector((state) => state?.pateintReducer?.pateintList);
+    const patientList = useSelector((state) => state?.patientReducer?.patientList);
 
-    const patientDetails = pateintList.find(p => {
+    const patientDetails = patientList.find(p => {
         return p.id === Number(id)
     });
     const [openDialog, setOpenDialog] = useState(false);

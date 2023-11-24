@@ -16,7 +16,9 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useSelector } from "react-redux";
+
 
 
 const drawerWidth = 240;
@@ -26,7 +28,7 @@ function ResponsiveDrawer(props) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [activeTab, setActiveTab] = React.useState(''); // Add this line
 
-
+    const id = useSelector(state => state.id.id)
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -39,17 +41,13 @@ function ResponsiveDrawer(props) {
             <Toolbar
                 style={{ justifyContent: "center", padding: "10px" }}
             >
-
-
                 <img src="/images/scanbo-img-logo.PNG" style={{ height: "100px" }} />
-
-
             </Toolbar>
 
 
             <Divider />
             <List>
-                {[{ name: 'Video Call', path: '/doctor' }, { name: 'Pateint List', path: '/pateint' }].map((item, index) => (
+                {[{ name: 'Video Call', path: `/doctor/${id}` }, { name: 'Patient List', path: `/patient/${id}` }].map((item, index) => (
                     <ListItem key={item.name} disablePadding
                         style={{ backgroundColor: activeTab === item.path ? '#ADD8E6' : 'transparent' }}
                     >

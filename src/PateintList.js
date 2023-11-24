@@ -14,7 +14,6 @@ import {
     InputAdornment,
     Chip
 } from '@mui/material';
-import { fetchPateintData } from './store/pateint/Action';
 import { useDispatch, useSelector } from "react-redux";
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -22,15 +21,19 @@ import CaseOpenIcon from '@mui/icons-material/AssignmentTurnedIn'; // Icon to in
 import VisibilityIcon from '@mui/icons-material/Visibility'; // Icon for the view button
 
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import CustomTextField from './components/CustomTextField';
+import { fetchPateintData } from './store/patient/Action';
+
 const PateintList = () => {
     // Replace with your state management and event handlers
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const id = useSelector(state => state.id.id)
+    console.log(id);
 
     useEffect(() => {
-        dispatch(fetchPateintData());
+        dispatch(fetchPateintData(id));
     }, [dispatch]);
 
     const [searchTerm, setSearchTerm] = React.useState('');
@@ -44,7 +47,7 @@ const PateintList = () => {
 
     const handlePatientClick = (id) => {
         // Navigate to the patient detail page with the patient's ID
-        navigate(`/patient/${id}`);
+        navigate(`/patientDetail/${id}`);
 
     };
 
@@ -58,10 +61,10 @@ const PateintList = () => {
     };
 
 
-    const pateintList = useSelector((state) => state?.pateintReducer?.pateintList);
+    const pateintList = useSelector((state) => state?.patientReducer?.patientList);
     const { currentCaseId } = useSelector((state) => state.caseReducer);
 
-    const filteredPatients = pateintList.filter(patient =>
+    const filteredPatients = pateintList && pateintList.filter(patient =>
         patient.first_name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -113,7 +116,7 @@ const PateintList = () => {
                                 boxShadow: "4px 2px 8px 0px rgba(95, 157, 231, 0.48) inset, -4px -2px 8px 0px #FFF inset"
                             }}
                         >
-                            {filteredPatients
+                            {filteredPatients && filteredPatients
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((patient, index) => (
                                     <TableRow hover role="checkbox" tabIndex={-1} key={patient.id} >
@@ -145,7 +148,7 @@ const PateintList = () => {
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}
                     component="div"
-                    count={pateintList.length}
+                    count={pateintList?.length}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

@@ -6,8 +6,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { fetchDoctorsData } from './store/doctor/Action';
 import { startVideoCallProcess } from './store/videoCall/Action';
 import VideoCallComponent from './components/VideoCallComponent';
+import { useParams } from 'react-router-dom';
 
 const DoctorList = () => {
+
     // Replace with your state management and event handlers
     const [videoCallConfig, setVideoCallConfig] = useState(false);
     const [doctor_id, setDoctorId] = useState();
@@ -15,8 +17,10 @@ const DoctorList = () => {
 
     const dispatch = useDispatch();
 
+    const id = useSelector(state => state.id.id)
+    console.log(id);
     useEffect(() => {
-        dispatch(fetchDoctorsData());
+        dispatch(fetchDoctorsData(id));
     }, [dispatch]);
 
     const [searchTerm, setSearchTerm] = React.useState('');
@@ -35,7 +39,7 @@ const DoctorList = () => {
         setVideoCallConfig(true)
         setDoctorId(doctorId)
         // Proceed with the video call
-        dispatch(startVideoCallProcess(16, doctorId));
+        dispatch(startVideoCallProcess(id, doctorId));
 
     };
 

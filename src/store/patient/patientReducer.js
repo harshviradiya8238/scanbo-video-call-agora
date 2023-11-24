@@ -6,18 +6,18 @@ import {
 } from "../constants";
 
 const INIT_STATE = {
-  pateintList: [],
+  patientList: [],
   loading: false,
   error: "",
   success: "",
 };
-const pateintReducer = (state = INIT_STATE, action) => {
+const patientReducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case PATEINT_GET_DATA_SUCCESS:
       return {
         ...state,
         loading: false,
-        pateintList: action.payload,
+        patientList: action.payload,
         error: "",
       };
     case PATEINT_GET_DATA_ERROR:
@@ -32,4 +32,4 @@ const pateintReducer = (state = INIT_STATE, action) => {
   }
 };
 
-export default pateintReducer;
+export default patientReducer;

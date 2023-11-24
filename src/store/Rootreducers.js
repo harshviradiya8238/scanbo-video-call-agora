@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
-import pateintReducer from "./pateint/pateintReducer";
+import patientReducer from "./patient/patientReducer";
 import doctorReducer from "./doctor/doctorReducer";
 import caseReducer from "./case/caseReducer";
 import videoCallReducer from "./videoCall/videoCallReducer";
+import idReducer from "./urlId/idReducer";
 
 
 const RootReducers = combineReducers({
-    pateintReducer,
+    id: idReducer,
+    patientReducer,
     doctorReducer,
     caseReducer,
     videoCallReducer
