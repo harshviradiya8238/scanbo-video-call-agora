@@ -41,7 +41,7 @@ function ResponsiveDrawer(props) {
             <Toolbar
                 style={{ justifyContent: "center", padding: "10px" }}
             >
-                <img src="/images/scanbo-img-logo.PNG" style={{ height: "100px" }} />
+                <img src="/images/scanbo-img-logo.png" style={{ height: "100px" }} />
             </Toolbar>
 
 
