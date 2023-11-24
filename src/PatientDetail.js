@@ -105,18 +105,18 @@ export default function PatientDetail() {
                         <Grid item xs={6}>
                             <CustomTextField
 
-                                disabled placeholder="Mobile" fullWidth defaultValue="+91 8097117255" value={patientDetails?.mobile_no}
+                                disabled placeholder="Mobile" fullWidth value={patientDetails?.mobile_no}
                                 variant="outlined"
 
                             />
                         </Grid>
                         <Grid item xs={6}>
-                            <CustomTextField disabled placeholder="Email" fullWidth defaultValue="mayur@gmail.com" value={patientDetails?.email} />
+                            <CustomTextField disabled placeholder="Email" fullWidth value={patientDetails?.email} />
                         </Grid>
 
                         {/* Repeat for each field */}
                         <Grid item xs={6}>
-                            <CustomTextField disabled placeholder="Dob" fullWidth defaultValue="29" value={patientDetails?.date_of_birth} />
+                            <CustomTextField disabled placeholder="Dob" fullWidth value={patientDetails?.date_of_birth} />
                         </Grid>
                         <Grid item xs={6}>
                             <CustomTextField disabled placeholder="Age" fullWidth value={patientDetails?.age} />
@@ -125,40 +125,40 @@ export default function PatientDetail() {
                         {/* ... */}
 
                         <Grid item xs={12}>
-                            <CustomTextField disabled placeholder="Address 1" fullWidth defaultValue="mumbai" value={patientDetails?.address_one} />
+                            <CustomTextField disabled placeholder="Address 1" fullWidth value={patientDetails?.address_one} />
                         </Grid>
                         <Grid item xs={12}>
-                            <CustomTextField disabled placeholder="Address 2" fullWidth defaultValue="mumbai" value={patientDetails?.address_two} />
+                            <CustomTextField disabled placeholder="Address 2" fullWidth value={patientDetails?.address_two} />
                         </Grid>
 
                         {/* ... */}
 
                         <Grid item xs={6}>
-                            <CustomTextField disabled placeholder="Pincode" fullWidth defaultValue="400065" value={patientDetails?.pincode} />
+                            <CustomTextField disabled placeholder="Pincode" fullWidth value={patientDetails?.pincode} />
                         </Grid>
                         <Grid item xs={6}>
-                            <CustomTextField disabled placeholder="City" fullWidth defaultValue="MUMBAI" value={patientDetails?.city} />
+                            <CustomTextField disabled placeholder="City" fullWidth value={patientDetails?.city} />
                         </Grid>
 
                         {/* ... */}
 
                         <Grid item xs={6}>
-                            <CustomTextField disabled placeholder="State" fullWidth defaultValue="MAHARASHTRA" value={patientDetails?.state} />
+                            <CustomTextField disabled placeholder="State" fullWidth value={patientDetails?.state} />
                         </Grid>
                         <Grid item xs={6}>
-                            <CustomTextField disabled placeholder="Country" fullWidth defaultValue="INDIA" value={patientDetails?.country} />
+                            <CustomTextField disabled placeholder="Country" fullWidth value={patientDetails?.country} />
                         </Grid>
 
                         {/* ... */}
 
                         <Grid item xs={4}>
-                            <CustomTextField disabled placeholder="Gender" fullWidth defaultValue="M" value={patientDetails?.gender} />
+                            <CustomTextField disabled placeholder="Gender" fullWidth value={patientDetails?.gender} />
                         </Grid>
                         <Grid item xs={4}>
-                            <CustomTextField disabled placeholder="Weight" fullWidth defaultValue="89" value={patientDetails?.weight} />
+                            <CustomTextField disabled placeholder="Weight" fullWidth value={patientDetails?.weight} />
                         </Grid>
                         <Grid item xs={4}>
-                            <CustomTextField disabled placeholder="Height(cm)" fullWidth defaultValue="159" value={patientDetails?.height} />
+                            <CustomTextField disabled placeholder="Height(cm)" fullWidth value={patientDetails?.height} />
                         </Grid>
 
                         {/* Submit Button */}

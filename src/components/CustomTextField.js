@@ -36,8 +36,8 @@ const CustomTextField = styled(({ errorText, ...props }) => {
         "& .MuiOutlinedInput-input.Mui-disabled": {
             backgroundColor: `${theme.palette.mode === "dark" ? "rgba(0, 0, 0, 0.12) " : "#e5edf5 "
                 }`,
-            boxShadow:
-                "4px 2px 8px 0px rgba(95, 157, 231, 0.48) inset, -4px -2px 8px 0px #FFF inset",
+            // boxShadow:
+            //     "4px 2px 8px 0px rgba(95, 157, 231, 0.48) inset, -4px -2px 8px 0px #FFF inset",
             borderRadius: "50px",
         },
         "& .MuiOutlinedInput-input.Mui-disabled::-webkit-input-placeholder": {
