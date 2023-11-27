@@ -8,7 +8,9 @@ function VideoCallComponent({ setVideoCallConfig, doctor_id }) {
 
     const dispatch = useDispatch();
 
-    const { cname, uid, sid, resourceId } = useSelector((state) => state?.videoCallReducer?.callDetails);
+    const { uid, sid, resourceId } = useSelector((state) => state?.videoCallReducer?.callDetails);
+    const cname = useSelector((state) => state?.videoCallReducer?.callDetails?.cname);
+
 
     const { currentCaseId } = useSelector((state) => state?.caseReducer);
 
