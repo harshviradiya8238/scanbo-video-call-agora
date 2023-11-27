@@ -8,8 +8,12 @@ function VideoCallComponent({ setVideoCallConfig, doctor_id }) {
 
     const dispatch = useDispatch();
 
-    const { uid, sid, resourceId } = useSelector((state) => state?.videoCallReducer?.callDetails);
-    const cname = useSelector((state) => state?.videoCallReducer?.callDetails?.cname);
+
+    const cname = useSelector((state) => state?.videoCallReducer?.resourceId?.cname);
+    const sid = useSelector((state) => state?.videoCallReducer?.callDetails?.sid);
+    const uid = useSelector((state) => state?.videoCallReducer?.resourceId?.uid);
+    const resourceId = useSelector((state) => state?.videoCallReducer?.callDetails?.resourceId);
+
 
 
     const { currentCaseId } = useSelector((state) => state?.caseReducer);
