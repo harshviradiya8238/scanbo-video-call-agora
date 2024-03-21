@@ -7,7 +7,6 @@ import { setId } from '../store/urlId/Action';
 
 const Redirector = () => {
     const { id } = useParams();
-    console.log(id, "][]");
     const dispatch = useDispatch();
 
     useEffect(() => {

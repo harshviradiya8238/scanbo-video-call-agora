@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "https://stagingapi.scanbo.com/v16";
+const baseUrl = "https://api.scanbo.com/v16";
 const events = [
     "load",
     "mousemove",
