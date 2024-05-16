@@ -8,7 +8,6 @@ import { setId } from '../store/urlId/Action';
 const Redirector = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
-
     useEffect(() => {
         if (id) {
             dispatch(setId(id)); // Dispatch action to set id in Redux store

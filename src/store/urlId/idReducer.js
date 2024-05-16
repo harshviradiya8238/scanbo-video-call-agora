@@ -1,7 +1,7 @@
 import { SET_ID } from './Action';
 
 const initialState = {
-    id: null
+    id: localStorage.getItem('id') || null,
 };
 
 const idReducer = (state = initialState, action) => {

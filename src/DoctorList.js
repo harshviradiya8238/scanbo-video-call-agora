@@ -7,21 +7,25 @@ import { fetchDoctorsData } from './store/doctor/Action';
 import { startVideoCallProcess } from './store/videoCall/Action';
 import VideoCallComponent from './components/VideoCallComponent';
 import { useParams } from 'react-router-dom';
+import { setId } from './store/urlId/Action';
 
 const DoctorList = () => {
 
     // Replace with your state management and event handlers
     const [videoCallConfig, setVideoCallConfig] = useState(false);
     const [doctor_id, setDoctorId] = useState();
-
-
     const dispatch = useDispatch();
 
-    const id = useSelector(state => state.id.id)
-    console.log(id);
+    const { id } = useParams();
     useEffect(() => {
         dispatch(fetchDoctorsData(id));
     }, [dispatch]);
+
+    useEffect(() => {
+        if (id) {
+            dispatch(setId(id)); // Dispatch action to set id in Redux store
+        }
+    }, [id, dispatch]);
 
     const [searchTerm, setSearchTerm] = React.useState('');
     const isCaseOpen = useSelector(state => state.caseReducer.isCaseOpen)

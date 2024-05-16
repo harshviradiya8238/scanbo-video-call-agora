@@ -24,13 +24,19 @@ import VisibilityIcon from '@mui/icons-material/Visibility'; // Icon for the vie
 import { useNavigate, useParams } from 'react-router-dom';
 import CustomTextField from './components/CustomTextField';
 import { fetchPateintData } from './store/patient/Action';
+import { setId } from './store/urlId/Action';
 
 const PateintList = () => {
     // Replace with your state management and event handlers
+    const { id } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const id = useSelector(state => state.id.id)
-    console.log(id);
+
+    useEffect(() => {
+        if (id) {
+            dispatch(setId(id)); // Dispatch action to set id in Redux store
+        }
+    }, [id, dispatch]);
 
     useEffect(() => {
         dispatch(fetchPateintData(id));
