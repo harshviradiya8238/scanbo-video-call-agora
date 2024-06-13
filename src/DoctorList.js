@@ -35,6 +35,7 @@ const DoctorList = () => {
         setSearchTerm(event.target.value);
     };
     const handleVideoCallStart = (doctorId) => {
+        console.log(doctorId, "=======");
 
         if (!isCaseOpen) {
             alert('Please open a case before starting the video call.');
