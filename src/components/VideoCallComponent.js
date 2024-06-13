@@ -29,7 +29,6 @@ function VideoCallComponent({ setVideoCallConfig, doctor_id }) {
         appId: '85fd7235064249f0a0997a368d7a24d6',
         channel: cname ? cname : "", // your agora channel
         // enableScreensharing: true,
-        enableVideo: true, //Enable video by default
         token: null // use null or skip if using app in testing mode
     };
 
@@ -73,7 +72,6 @@ function VideoCallComponent({ setVideoCallConfig, doctor_id }) {
                 <AgoraUIKit
                     rtcProps={rtcProps}
                     callbacks={callbacks}
-                    enableVideo={true}
                 // ...other props you need to pass to the AgoraUIKit
                 />
             )}
